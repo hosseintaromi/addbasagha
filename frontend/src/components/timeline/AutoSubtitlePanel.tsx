@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSubtitleStore } from "@/store/subtitles";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { transcribeAudio, SUPPORTED_LANGUAGES } from '@/lib/api';
+import SubtitleList from './SubtitleList';
 
 const modelInfo = {
     basic: {
@@ -164,6 +165,12 @@ export default function AutoSubtitlePanel() {
 
             <div className="text-xs text-center text-muted-foreground">
                 Estimated cost: {selectedModel.cost} • Accuracy: {selectedModel.accuracy}
+            </div>
+
+            {/* Subtitle List for editing */}
+            <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+                <h3 className="text-sm font-medium mb-3">Current Subtitles</h3>
+                <SubtitleList />
             </div>
         </div>
     );

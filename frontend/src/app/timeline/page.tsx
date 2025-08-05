@@ -9,7 +9,7 @@ import TranslateDubPanel from '@/components/timeline/TranslateDubPanel'
 import Timeline from '@/components/timeline/Timeline'
 import SubtitleOverlay from '@/components/timeline/SubtitleOverlay'
 import TextOverlay from '@/components/timeline/TextOverlay'
-import CanvasTextOverlay from '@/components/timeline/CanvasTextOverlay'
+
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function TimelinePage() {
@@ -24,7 +24,7 @@ export default function TimelinePage() {
     const [showText, setShowText] = useState(false)
     const [showTranslate, setShowTranslate] = useState(false)
     const [showMobileSidebar, setShowMobileSidebar] = useState(false)
-    const [videoSize, setVideoSize] = useState({ width: 854, height: 480 })
+
 
     const handleVideoTimeUpdate = useCallback(() => {
         if (videoRef.current) {
@@ -35,11 +35,6 @@ export default function TimelinePage() {
     const handleVideoLoadedMetadata = useCallback(() => {
         if (videoRef.current) {
             setDuration(videoRef.current.duration)
-            // Update video size for canvas overlay
-            setVideoSize({
-                width: videoRef.current.videoWidth || 854,
-                height: videoRef.current.videoHeight || 480
-            })
         }
     }, [])
 
@@ -112,11 +107,6 @@ export default function TimelinePage() {
                     />
                     <SubtitleOverlay currentTime={time} />
                     <TextOverlay currentTime={time} />
-                    <CanvasTextOverlay
-                        currentTime={time}
-                        videoWidth={videoSize.width}
-                        videoHeight={videoSize.height}
-                    />
 
                     {/* Enhanced mobile video controls */}
                     <div className='absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-black/70 text-white px-2 py-1 rounded text-xs sm:text-sm backdrop-blur-sm'>
