@@ -6,7 +6,7 @@ export default function LanguageToggle() {
     const { language, setLanguage, isRTL } = useLanguage()
 
     return (
-        <div className={`flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1 ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <div className={`flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1 flex-shrink-0 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <button
                 onClick={() => setLanguage('en')}
                 className={`px-3 py-1 text-sm font-medium rounded-md transition-colors min-w-[44px] ${language === 'en'

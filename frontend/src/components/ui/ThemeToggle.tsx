@@ -1,20 +1,25 @@
 'use client'
 
 import { useTheme } from '@/contexts/ThemeContext'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function ThemeToggle() {
     const { theme, toggleTheme } = useTheme()
+    const { isRTL } = useLanguage()
 
     return (
         <button
             onClick={toggleTheme}
-            className="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+            className="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 flex-shrink-0"
             role="switch"
             aria-checked={theme === 'dark'}
             aria-label="Toggle dark mode"
         >
             <span
-                className={`${theme === 'dark' ? 'translate-x-7' : 'translate-x-1'
+                className={`${
+                    theme === 'dark' 
+                        ? (isRTL ? 'translate-x-1' : 'translate-x-7')
+                        : (isRTL ? 'translate-x-7' : 'translate-x-1')
                     } h-6 w-6 transform rounded-full bg-white dark:bg-gray-300 transition-transform flex items-center justify-center`}
             >
                 {theme === 'dark' ? (

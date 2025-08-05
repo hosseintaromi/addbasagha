@@ -11,19 +11,19 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       {/* Header */}
-            <header className={`flex items-center justify-between px-6 py-4 md:px-10 ${isRTL ? 'flex-row-reverse' : ''}`}>
+      <header className={`flex items-center justify-between px-6 py-4 md:px-10 ${isRTL ? 'flex-row-reverse' : ''}`}>
         <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
           <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded flex items-center justify-center">
             <span className="text-white font-bold text-sm">A</span>
           </div>
           <span className="text-xl font-bold text-gray-900 dark:text-white">ABBASAGHA</span>
         </div>
-        <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <div className={`flex items-center gap-3 flex-shrink-0 ${isRTL ? 'flex-row-reverse' : ''}`}>
           <LanguageToggle />
           <ThemeToggle />
           <Link 
             href="/signin" 
-            className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+            className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors whitespace-nowrap"
           >
             {t('header.signin')}
           </Link>
